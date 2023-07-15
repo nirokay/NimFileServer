@@ -1,4 +1,5 @@
 import std/[asyncdispatch]
 import ./server
 
-waitFor runServer()
+when isMainModule:
+    waitFor runServer()

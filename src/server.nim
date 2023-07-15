@@ -26,7 +26,7 @@ proc serverRequestHandler*(request: Request) {.async, gcsafe.} =
 
     except OSError:
         echo "Sent error (reading):\n\t"
-        await request.respond(Http500, message "500: Internal Error", responseHeaders)
+        await request.respond(Http500, message errorResponse, responseHeaders)
 
     except CatchableError, Defect:
         echo "Sent error (unknown):\n\t" & errorResponse

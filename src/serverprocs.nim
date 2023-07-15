@@ -7,6 +7,7 @@ type FileSystemObject = object
 proc message*(message: string): string =
     return "{\"message\":\"" & message & "\"}"
 
+
 proc readFilesystem*(path: string): string =
     let seperator: char = block:
         if defined(windows): '\\'
@@ -23,7 +24,6 @@ proc readFilesystem*(path: string): string =
                 of pcLinkToFile: "file-link"
         ))
     return $(%items)
-
 
 proc readFileContents*(path: string): string =
     return "{\"file-content\":" & $(%path.readFile()) & "}"
